@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Blazor_HW/Blazor_HW.csproj" />
+  <Project Path="Converter/Converter.csproj" Id="365b1e8e-7fc0-4a18-947a-83d9ebf1d4de" />
+</Solution>

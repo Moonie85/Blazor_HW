@@ -1,0 +1,42 @@
+﻿@page "/power"
+@rendermode InteractiveServer
+
+<h3 class="power-title">Возведение числа в степень</h3>
+
+<div class="mb-3">
+    <label class="form-label">Введите число (x):</label>
+    <input type="number" class="form-control" @bind="baseNumber" />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Введите степень (y):</label>
+    <input type="number" class="form-control" @bind="exponent" />
+</div>
+
+<button type="button" class="btn btn-primary" @onclick="Calculate">Вычислить</button>
+
+<p class="mt-3 power-result">
+    Результат: <b>@calculatedBase<sup>@calculatedExponent</sup> = @result</b>
+</p>
+
+@code {
+    double baseNumber = 2;
+    int exponent = 3;
+    double result;
+
+    double calculatedBase = 2;
+    int calculatedExponent = 3;
+
+    protected override void OnInitialized()
+    {
+        Calculate();
+    }
+
+    void Calculate()
+    {
+        result = Math.Pow(baseNumber, exponent);
+
+        calculatedBase = baseNumber;
+        calculatedExponent = exponent;
+    }
+}

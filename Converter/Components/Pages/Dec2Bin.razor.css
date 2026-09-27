@@ -1,0 +1,33 @@
+h3 {
+    color: #2c3e50;
+    font-family: Arial, sans-serif;
+}
+
+input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+button {
+    padding: 6px 14px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #2980b9;
+    }
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+strong {
+    color: #27ae60;
+}

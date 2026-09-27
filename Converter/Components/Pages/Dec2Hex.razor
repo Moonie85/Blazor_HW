@@ -1,0 +1,33 @@
+﻿@page "/dec2hex"
+@rendermode InteractiveServer
+
+<h3>Перевод из десятичной в шестнадцатеричную</h3>
+
+<div class="mb-3">
+    <input type="number" @bind="decimalNumber" />
+    <button @onclick="DoConvert">Перевести</button>
+</div>
+
+<p>Результат: <strong>@result</strong></p>
+
+@code {
+    private string? decimalNumber = "42";
+    private string? result;
+
+    protected override void OnInitialized()
+    {
+        DoConvert();
+    }
+
+    private void DoConvert()
+    {
+        if (int.TryParse(decimalNumber, out int number))
+        {
+            result = Convert.ToString(number, 16).ToUpper();
+        }
+        else
+        {
+            result = "Ошибка: введите целое число";
+        }
+    }
+}

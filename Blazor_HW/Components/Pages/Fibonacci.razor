@@ -1,0 +1,43 @@
+﻿@page "/fibonacci"
+@rendermode InteractiveServer
+
+<h3 class="fib-title">Последовательность Фибоначчи</h3>
+
+<div class="mb-3">
+    <label class="form-label">Предел:</label>
+    <input type="number" class="form-control" @bind="limit" />
+</div>
+
+<button type="button" class="btn btn-primary" @onclick="Generate">Сгенерировать</button>
+
+<p class="mt-3 fib-label">Результат:</p>
+<p class="fib-row">
+    @foreach (var n in numbers)
+    {
+        <span class="fib-item">@n</span>
+    }
+</p>
+
+@code {
+    int limit = 10;
+    List<long> numbers = new();
+
+    protected override void OnInitialized()
+    {
+        Generate();
+    }
+
+    void Generate()
+    {
+        numbers.Clear();
+
+        long a = 0, b = 1;
+        while (a <= limit)
+        {
+            numbers.Add(a);
+            long next = a + b;
+            a = b;
+            b = next;
+        }
+    }
+}

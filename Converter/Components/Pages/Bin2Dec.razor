@@ -1,0 +1,41 @@
+﻿@page "/bin2dec"
+@rendermode InteractiveServer
+
+<h3>Перевод двоичного числа в десятичное</h3>
+
+<div class="mb-3">
+    <input type="text" @bind="binaryNumber" />
+    <button @onclick="DoConvert">Перевести</button>
+</div>
+
+<p>Результат: <strong>@result</strong></p>
+
+@code {
+    private string? binaryNumber = "101010";
+    private string? result;
+
+    protected override void OnInitialized()
+    {
+        DoConvert();
+    }
+
+    private void DoConvert()
+    {
+        if (string.IsNullOrWhiteSpace(binaryNumber))
+        {
+            result = "Ошибка: пустая строка";
+            return;
+        }
+
+        foreach (char c in binaryNumber)
+        {
+            if (c != '0' && c != '1')
+            {
+                result = "Ошибка: допускаются только 0 и 1";
+                return;
+            }
+        }
+
+        result = Convert.ToInt32(binaryNumber, 2).ToString();
+    }
+}
